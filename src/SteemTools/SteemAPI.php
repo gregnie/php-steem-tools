@@ -98,7 +98,30 @@ class SteemAPI
         $this->api_ids[$api_name] = $response;
         return $response;
     }
+    
+    public function get_active_votes($params)
+    {
+        $result = $this->SteemServiceLayer->call('get_active_votes', $params);
+        return $result;
+    }
+    
+    public function get_content_replies($params)
+    {
+        $result = $this->SteemServiceLayer->call('get_content_replies', $params);
+        return $result;
+    }
+    public function get_dynamic_global_properties($params)
+    {
+        $result = $this->SteemServiceLayer->call('get_dynamic_global_properties', $params);
+        return $result;
+    }
 
+    public function get_block($params)
+    {
+        $result = $this->SteemServiceLayer->call('get_block', $params);
+        return $result;
+    }
+    
     public function cachedCall($call, $params, $serialize = false, $batch = false, $batch_size = 100)
     {
         $data = @file_get_contents($call . '_data.txt');
